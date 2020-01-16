@@ -499,6 +499,113 @@ Content-Type: application/json
 
 
     
+    <section>
+        <section >
+            <h2><a id="user-content-build-suite" class="anchor" href="#build-suite" aria-hidden="true"></a>Build Suite</h2>
+<p>SFCC Build Suite repo has been cloned to<br /><a href="https://github.com/OSFGlobal/build-suite-sfcc">OSFGlobal organization</a><br /></p>
+<img src="images/project.png" />
+
+            </section>
+        
+            <section class="fs12">
+                <!-- .slide: class="fs12" -->
+<h2><a id="user-content-build-suite-config" class="anchor" href="#build-suite-config" aria-hidden="true"></a>Build suite config</h2>
+<pre><code>{
+	&quot;dependencies&quot;: [
+		{
+			&quot;repository&quot;: {
+				&quot;url&quot;: &quot;file:///home/runner/work/vam-sfcc/vam-sfcc/&quot;,
+				&quot;type&quot;: &quot;file&quot;,
+				&quot;branch&quot; : &quot;not-used&quot;,
+				&quot;username&quot;: &quot;not-used&quot;,
+				&quot;password&quot;: &quot;not-used&quot;
+			},
+			&quot;source&quot;: {
+				&quot;path&quot;: &quot;cartridges&quot;,
+				&quot;glob&quot;: &quot;**/*&quot;,
+				&quot;ignoreEmpty&quot;: true
+			},
+			&quot;siteImport&quot;: {
+				&quot;enabled&quot;: &quot;true&quot;,
+				&quot;sites&quot;: [&quot;vam&quot;],
+				&quot;initPath&quot;: &quot;sites/site_template&quot;,
+				&quot;demoPath&quot;: &quot;sites/site_demo&quot;,
+				&quot;environmentPath&quot;: &quot;sites/config&quot;
+			},
+			&quot;cartridges&quot;: [
+				&quot;app_storefront_base&quot;,
+				&quot;app_custom_vam&quot;,
+				&quot;plugin_dis&quot;,
+				&quot;bm_app_storefront_base&quot;,
+				&quot;bc_job_components&quot;,
+				&quot;link_backinstock&quot;,
+				&quot;modules&quot;
+			]
+		}
+	],
+
+	&quot;environments&quot;: {
+		&quot;deploy&quot;: {
+			&quot;server&quot;: &quot;${HOST}&quot;,
+			&quot;username&quot;: &quot;${SF_USERNAME}&quot;,
+			&quot;password&quot;: &quot;${SF_PASSWORD}&quot;,
+			&quot;client_id&quot;: &quot;${CLIENT_ID}&quot;,
+			&quot;client_secret&quot;: &quot;${CLIENT_SECRET}&quot;,
+
+			&quot;two_factor&quot;: {
+				&quot;enabled&quot;: &quot;${TWO_FACTOR}&quot;,
+				&quot;cert&quot;: &quot;build/projects/vam-sfcc/certificates/staging.p12&quot;,
+				&quot;password&quot;: &quot;${CERT_PASSWORD}&quot;,
+				&quot;url&quot;: &quot;cert.staging.eu01.victoriaandalbert.demandware.net&quot;
+			},
+
+			&quot;siteImport&quot;: {
+				&quot;enabled&quot;: ${SITE_IMPORT}
+			}
+		}
+	},
+
+	&quot;settings&quot;: {
+		&quot;project&quot;: {
+			&quot;name&quot;: &quot;vam&quot;,
+			&quot;version&quot;: &quot;vam-sfcc&quot;,
+			&quot;build&quot;: &quot;${BUILD_NUMBER}&quot;
+		},
+		&quot;general&quot;: {
+			&quot;watch_path&quot;: &quot;../cartridges&quot;,
+			&quot;password_encryption&quot;: true,
+			&quot;target_environment&quot;: &quot;default&quot;
+		},
+		&quot;upload&quot;: {
+			&quot;cleanup&quot;: true,
+			&quot;excludehidden&quot;: false
+		},
+		&quot;siteImport&quot;: {
+			&quot;enabled&quot;: true,
+			&quot;filenames&quot;: {
+				&quot;init&quot;: &quot;full-site-export&quot;,
+				&quot;meta&quot;: &quot;build-suite-metadata&quot;,
+				&quot;content&quot;: &quot;full-site-export&quot;
+			}
+		},
+		&quot;storefront_build_information&quot;: {
+			&quot;enabled&quot;: false,
+			&quot;target_cartridge&quot;: &quot;app_storefront_base&quot;,
+			&quot;target_template&quot;: &quot;default/components/footer/footer.isml&quot;
+		}
+	}
+}
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
         <section class="list14">
             
             <!-- .slide: class="list14" -->
